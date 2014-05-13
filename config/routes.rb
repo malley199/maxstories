@@ -1,7 +1,15 @@
-Rails.application.routes.draw do
-  root 'page#index'
+Pinterestforkittens::Application.routes.draw do
 
-  # The priority is based upon order of creation: first created -> highest priority.
+
+  devise_for :users
+  resources :pins
+
+get "/about" => "page#about"
+get "/cutepics" => "page#cutePics"  
+
+root "page#index"
+  
+  # e priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
