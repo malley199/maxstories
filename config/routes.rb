@@ -8,6 +8,7 @@ get "/about" => "page#about"
 get "/cutepics" => "page#cutePics" 
 
 get "/videos" => "page#videos"
+get "/uservideos" => "page#uservideos"
 
 root "page#index"
   
