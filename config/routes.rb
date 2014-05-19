@@ -5,10 +5,10 @@ Pinterestforkittens::Application.routes.draw do
   resources :pins
 
 get "/about" => "page#about"
-get "/cutepics" => "page#cutePics" 
+get "/uservideos" => "page#uservideos" 
 
 get "/videos" => "page#videos"
-get "/uservideos" => "page#uservideos"
+get "/upload" => "page#upload"
 
 root "page#index"
   
