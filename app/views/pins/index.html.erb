@@ -1,4 +1,25 @@
+<% if !user_signed_in? %>
+
+<div class="jumbotron">
+  <h1>Here you can post things about the stories!</h1>
+  <p>But in order to do that you have to sign in!
+  <p>
+    <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-lg" %>
+    <%= link_to "Sign In", new_user_session_path, class: "btn btn-warning btn-lg" %>
+  </p>
+</div>
+
+<% else %>
+
+
+
+
+
 <h1>Listing pins</h1>
+
+<% if user_signed_in? %>
+<p>Why hello, <%= current_user.email %></p>
+<% end %>
 
 <table class="table table-striped'"
   <thead>
@@ -14,9 +35,14 @@
     <% @pins.each do |pin| %>
       <tr>
         <td><%= pin.description %></td>
+        <td><%= time_ago_in_words pin.created_at %></td>
+
+        <td><%= pin.user.try( :email ) %></td>
+<% if current_user == pin.user %>
         <td><%= link_to 'Show', pin %></td>
         <td><%= link_to 'Edit', edit_pin_path(pin) %></td>
         <td><%= link_to 'Destroy', pin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -25,3 +51,18 @@
 <br>
 
 <%= link_to 'New Pin', new_pin_path %>
+
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <% if user_signed_in? %>
+        <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <li><%= link_to "Sign In", new_user_session_path %></li>
+      <% end %> 
+    </ul>
+  </div><!-- /.navbar-collapse -->
+
+
+
+<%end%>
