@@ -1,6 +1,11 @@
 
 
-<div class="jumbotron">
+<div class="bubble">
+<br/>
+<br/>
+<center>
+
+
   <h1>We all love listening to stories</h1> 
 
   
@@ -17,7 +22,56 @@
     </a>
 
 
-
-
   </p>
-</div>
+
+  <div>
+</center>
+
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+
+  <div class="col-md-4"><img class="img-responsive" src="<%= image_path "business.jpg" %>" width="300" height ="400"/></div>
+
+
+
+
+
+
+
+
+
+<style>
+
+
+
+
+.bubble 
+{
+position: relative;
+width: 750px;
+height: 300px;
+padding: 27px;
+background: #9FE096;
+-webkit-border-radius: 80px;
+-moz-border-radius: 80px;
+border-radius: 80px;
+}
+
+.bubble:after 
+{
+content: '';
+position: absolute;
+border-style: solid;
+border-width: 65px 79px 0;
+border-color: #9FE096 transparent;
+display: block;
+width: 0;
+z-index: 1;
+bottom: -65px;
+left: 188px;
